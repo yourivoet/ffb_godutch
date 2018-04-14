@@ -3,4 +3,4 @@ from godutch import *
 
 @app.route("/")
 def home():
-    return "FFB"
+    return render_template('home.html')

@@ -1,7 +1,7 @@
 from flask import Flask
 import sqlite3
 import populate
-from flask import g
+from flask import g, render_template
 
 app = Flask(__name__)
 
@@ -47,3 +47,5 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+
+from app import *
