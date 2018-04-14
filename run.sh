@@ -1,4 +1,4 @@
 #! /bin/bash
 
-export FLASK_APP=app/app.py
+export FLASK_APP=app/godutch.py
 flask run
