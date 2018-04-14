@@ -1,11 +1,12 @@
 from flask import Flask
 import sqlite3
 import populate
-from flask import g, render_template
+from flask import g, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = 'godutch_secret'
 
-DATABASE = 'godutch.db'
+DATABASE = './godutch.db'
 
 
 def init_db():

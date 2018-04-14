@@ -8,6 +8,7 @@ __pycache__/
 
 *.#*
 app/godutch.db
+*.db
 
 # Distribution / packaging
 .Python

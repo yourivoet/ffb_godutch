@@ -8,10 +8,12 @@ def populate():
 
     godutch.init_db()
     generate_accounts()
+    godutch.get_db().commit()
 
 
 def generate_accounts():
     godutch.query_db('insert into account (name) values (?)', ['Anna Ida'])
+    godutch.query_db('insert into account (name) values (?)', ['Claire'])
     godutch.query_db('insert into account (name) values (?)', ['Youri'])
 
 
