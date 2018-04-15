@@ -1,5 +1,54 @@
 {% extends "layout.html" %}
 
 {% block body %}
-test
+<div class="row header">
+
+  <div class="col-6 logo">
+    <img src="{{ url_for('static', filename='img/godutch.png') }}" alt="GoDutch" width="150px" />
+  </div>
+
+  <div class="col-6 buy-tokens">
+    Buy tokens
+  </div>
+
+</div>
+
+<div class="overview">
+  OVERVIEW
+</div>
+
+<div class="token_container-container">
+  <div class="row token_container">
+{% for i in range(amount) %}
+
+<div class="token col-2">
+</div>
+
+{% endfor %}
+</div>
+</div>
+
+<div class="token-amount" >
+  <span id="full-amount">{{ tokens }}</span><span id="tokenAmount"></span>
+</div>
+
+
+<div class="slider_container">
+  <div class="slider_text">
+    At this pace you and your group will run out of tokens at
+    <div class="slider_time"><span id="time">16:54</span></div>
+  </div>
+  <input type="range" min="0" max="40" value="0" class="slider" id="tokenSlider">
+
+</div>
+
+<div class="buy_button-container">
+  <div class="buy_button">
+    PAY
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='tokens.js') }}"></script>
+
 {% endblock %}

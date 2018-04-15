@@ -12,12 +12,6 @@ def populate():
 
 
 def generate_accounts():
-    godutch.query_db('insert into account (name) values (?)', ['Anna Ida'])
-    godutch.query_db('insert into account (name) values (?)', ['Claire'])
-    godutch.query_db('insert into account (name) values (?)', ['Youri'])
-
-
-def generate_menu():
-    godutch.query_db('insert into menu (name, price) values (?)', ['Beer', 1.0])
-    godutch.query_db('insert into menu (name, price) values (?)', ['Coke', 1.0])
-    godutch.query_db('insert into menu (name, price) values (?)', ['Water', 1.5])
+    godutch.query_db('insert into account (name, tokens) values (?, ?)', ['Anna Ida', 3])
+    godutch.query_db('insert into account (name, tokens) values (?, ?)', ['Claire', 7.5])
+    godutch.query_db('insert into account (name, tokens) values (?, ?)', ['Youri', 6.5])

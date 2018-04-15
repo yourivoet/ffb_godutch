@@ -1,5 +1,25 @@
 {% extends "layout.html" %}
 
 {% block body %}
-test
+
+<div class="landing">
+  <a href="{{ url_for('overview') }}"><img src="{{ url_for('static', filename='img/godutch_white.png') }}" alt="GoDutch" width="180px" /></a>
+</div>
+
+
+<style>
+  body {
+  background: black;
+  }
+
+  .landing {
+  position:absolute;
+  top: 47%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  }
+</style>
+
 {% endblock %}
+

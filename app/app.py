@@ -1,6 +1,8 @@
 from godutch import *
 
 
+TOKEN_AMOUNT = 13
+
 @app.route("/")
 def home():
     return render_template('home.html')
@@ -11,10 +13,7 @@ def login():
     error = None
 
     if request.method == 'POST':
-        print(request.form['name'])
         result = query_db('select name from account where name=?', [request.form['name']])
-
-        print(result)
 
         if not result:
             error = 'User not found'
@@ -27,14 +26,18 @@ def login():
 
 @app.route("/group")
 def group():
-    db = get_db()
-    cur = db.execute('select name from account')
-    accounts = cur.fetchall()
-    print(accounts)
-
+    accounts = query_db('select name, tokens from account')
     return render_template('group.html', accounts=accounts)
 
 
 @app.route("/overview")
 def overview():
-    return render_template('overview.html')
+    amount = min([TOKEN_AMOUNT, 36])
+    return render_template('overview.html', tokens=TOKEN_AMOUNT, amount=amount)
+
+
+@app.route("/order")
+def order():
+    items = query_db('select name, price from menu')
+
+    return render_template('order.html', items=items)
